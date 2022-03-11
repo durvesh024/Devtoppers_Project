@@ -7,13 +7,6 @@ import yaml
 
 app = Flask(__name__)
 config = yaml.safe_load(open('database.yaml'))
-app.config['MONGODB_SETTINGS'] = {
-    'host': os.environ['MONGODB_HOST'],
-    'username': os.environ['MONGODB_USERNAME'],
-    'password': os.environ['MONGODB_PASSWORD'],
-    'db': 'UserInfo'
-}
-
 client = MongoClient(config['uri'])
 # db = client.lin_flask
 db = client['UserInfo']
